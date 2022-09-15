@@ -1,0 +1,46 @@
+{
+  "products": [
+    {
+      "name": "MacBook Air",
+      "price": "1300",
+      "stock": "567",
+      "id": 7
+    },
+    {
+      "name": "MacBook Pro 14”",
+      "price": "2100",
+      "stock": "432",
+      "id": 8
+    },
+    {
+      "name": "MacBook Pro 16”",
+      "price": "2799",
+      "stock": "267",
+      "id": 10
+    },
+    {
+      "name": "iPhone 12 Pro 64Gb",
+      "price": "899",
+      "stock": "45",
+      "id": 12
+    },
+    {
+      "name": "Apple Watch Series 7",
+      "price": "399",
+      "stock": "433",
+      "id": 13
+    },
+    {
+      "name": " AirPods Max",
+      "price": "599",
+      "stock": "67",
+      "id": 15
+    },
+    {
+      "name": " Mac Studio",
+      "price": "1999",
+      "stock": "56",
+      "id": 16
+    }
+  ]
+}

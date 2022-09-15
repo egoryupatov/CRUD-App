@@ -1,0 +1,12 @@
+import styled from "styled-components";
+
+export const Form = styled.form`
+  width: 100%;
+  padding: 15px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  color:black;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+
+`
