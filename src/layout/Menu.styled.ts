@@ -4,7 +4,6 @@ export const NavBarStyled = styled.nav`
   display: flex;
   justify-content: space-between;
   background-color: #36304A;
-  height:5vh;
   align-items: center;
   box-shadow: 0 1px 8px #ddd;
   
@@ -18,7 +17,8 @@ export const NavLinkStyled = styled.div`
 
   display: flex;
   text-decoration: none;
-  padding-right:40px;
+  padding: 15px 40px 15px 0px;
+  
   
   li {
     padding: 0 20px;
@@ -28,7 +28,7 @@ export const NavLinkStyled = styled.div`
 `
 
 export const LogoStyled = styled.div`
-  padding-left:40px;
+  padding: 15px 0px 15px 40px;
   display: flex;
   font-size:25px;
   color:white;

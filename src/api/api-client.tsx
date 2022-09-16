@@ -2,6 +2,7 @@ import { Product } from "../store/productsSlice";
 import { PartialProduct } from "../screens/addProduct/AddProductContainer";
 
 export const BASE_API_URL = "http://localhost:3000";
+
 const headers = {
   "Content-Type": "application/json",
 };
@@ -34,6 +35,11 @@ export const getProductsApi = (params: GetProductsApiParams): Promise<Product> =
   });
 };
 
+
+
+
+
+
 export const createProductApi = (params: CreateProductApiParams): Promise<Product> => {
   const options = {
     method: "POST",
@@ -46,6 +52,8 @@ export const createProductApi = (params: CreateProductApiParams): Promise<Produc
   });
 };
 
+
+
 export const editProductApi = (params: EditProductApiParams): Promise<Product> => {
   const options = {
     method: "PUT",
@@ -57,6 +65,12 @@ export const editProductApi = (params: EditProductApiParams): Promise<Product> =
     return response.json();
   });
 };
+
+
+
+
+
+
 
 export const deleteProductApi = (params: DeleteProductApiParams) => {
   const options = {

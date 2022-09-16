@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { EditProduct } from "./EditProduct";
-import { createProductApi } from "../../api/api-client";
+import {createProductApi, editProductApi} from "../../api/api-client";
 
 export type PartialProduct = Pick<Product, "name" | "price" | "stock">;
 
@@ -15,9 +15,9 @@ export const EditProductContainer: React.FC = () => {
   const editedProduct: Product | undefined = products.find((product) => product.id === Number(params.id));
 
   const [productInfo, setProductInfo] = useState<PartialProduct>({
-    name: `${editedProduct?.name}`,
-    price: `${editedProduct?.price}`,
-    stock: `${editedProduct?.stock}`,
+    name: '',
+    price: '',
+    stock: ''
   });
 
   const handleProductNameEdit = (name: string) => {
@@ -33,7 +33,7 @@ export const EditProductContainer: React.FC = () => {
   };
 
   const handleProductEdit = () => {
-    createProductApi({ newProduct: productInfo }).then((productInfo) => {
+    editProductApi({ editedProduct: productInfo }).then((productInfo) => {
       dispatch(editProductAction(productInfo));
     });
   };

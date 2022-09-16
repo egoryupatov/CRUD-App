@@ -56,6 +56,7 @@ export const App: React.FC = () => {
 
             {!sort && <SortedList products={products} searchValue={searchValue} onChangeSearchValue={onChangeSearchValue}  />}
             {sort && <SortedList products={sortedUp} searchValue={searchValue} onChangeSearchValue={onChangeSearchValue} />}
+
           </ProductTableStyled>
 
         </Wrapper>

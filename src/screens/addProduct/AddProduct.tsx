@@ -2,7 +2,6 @@ import React from "react";
 import { Input } from "../../kit/Input";
 import { Container } from "../../styles/Container.styled";
 import { ButtonStyled } from "../../styles/Button.styled";
-import { GlobalStyles } from "../../styles/Global.styled";
 import { Form } from "../../styles/Form.styled";
 import { Wrapper } from "../../styles/Wrapper.styled";
 
@@ -41,6 +40,7 @@ export const AddProduct: React.FC<AddProductProps> = (props) => {
           />
 
           <ButtonStyled onClick={props.onSubmit}>Add a product</ButtonStyled>
+
         </Form>
       </Wrapper>
     </Container>
