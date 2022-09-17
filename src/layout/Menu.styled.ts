@@ -5,7 +5,6 @@ export const NavBarStyled = styled.nav`
   justify-content: space-between;
   background-color: #36304A;
   align-items: center;
-  box-shadow: 0 1px 8px #ddd;
   
   a {
     color: white;

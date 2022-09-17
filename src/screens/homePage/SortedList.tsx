@@ -2,6 +2,11 @@ import { DeleteProduct } from "../deleteProduct/DeleteProduct";
 import { EditProductButton } from "./EditProductButton";
 import { Product } from "../../store/productsSlice";
 import React, { ChangeEventHandler } from "react";
+import {
+  TableBodyStyled,
+  TableCellStyled,
+  TableRowStyled,
+} from "./HomePage.styled";
 
 interface SortedListProps {
   products: Product[];
@@ -11,25 +16,34 @@ interface SortedListProps {
 
 export const SortedList: React.FC<SortedListProps> = (props) => {
   return (
-    <tbody>
+    <TableBodyStyled>
+      <TableRowStyled>
+        <TableCellStyled>#</TableCellStyled>
+        <TableCellStyled>Product name</TableCellStyled>
+        <TableCellStyled>Price</TableCellStyled>
+        <TableCellStyled>Stock</TableCellStyled>
+        <TableCellStyled></TableCellStyled>
+        <TableCellStyled></TableCellStyled>
+      </TableRowStyled>
+
       {props.products
         .filter((product) => {
           return product.name.includes(props.searchValue);
         })
         .map((product) => (
-          <tr key={product.id}>
-            <td>{product.id}</td>
-            <td>{product.name}</td>
-            <td>${product.price}</td>
-            <td>{product.stock}</td>
-            <td>
+          <TableRowStyled key={product.id}>
+            <TableCellStyled>{product.id}</TableCellStyled>
+            <TableCellStyled>{product.name}</TableCellStyled>
+            <TableCellStyled>${product.price}</TableCellStyled>
+            <TableCellStyled>{product.stock}</TableCellStyled>
+            <TableCellStyled>
               <DeleteProduct productId={product.id} />
-            </td>
-            <td>
+            </TableCellStyled>
+            <TableCellStyled>
               <EditProductButton productId={product.id} />
-            </td>
-          </tr>
+            </TableCellStyled>
+          </TableRowStyled>
         ))}
-    </tbody>
+    </TableBodyStyled>
   );
 };

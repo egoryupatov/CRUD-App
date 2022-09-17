@@ -5,5 +5,5 @@ interface WrapperProps {
 }
 
 export const Wrapper = styled.div<WrapperProps>`
-  width: ${({width}) => width || '40%'};
+  width: ${({width}) => width || '50%'};
 `
