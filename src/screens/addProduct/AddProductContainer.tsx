@@ -5,13 +5,13 @@ import { AddProduct } from "./AddProduct";
 import { createProductApi } from "../../api/api-client";
 import { useNavigate } from "react-router-dom";
 
-export type PartialProduct = Pick<Product, "name" | "price" | "stock">;
+export type PartialProductCreate = Pick<Product, "name" | "price" | "stock">;
 
 export const AddProductContainer: React.FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const [productInfo, setProductInfo] = useState<PartialProduct>({
+  const [productInfo, setProductInfo] = useState<PartialProductCreate>({
     name: "",
     price: "",
     stock: "",
@@ -30,10 +30,11 @@ export const AddProductContainer: React.FC = () => {
   };
 
   const handleAddingProduct = () => {
-    createProductApi({ newProduct: productInfo }).then((productInfo) => {
-      dispatch(addProductAction(productInfo));
-      navigate("/");
-    });
+
+    createProductApi({ newProduct: productInfo })
+      .then((productInfo) => {dispatch(addProductAction(productInfo))
+    })
+    navigate("/")
   };
 
   return (

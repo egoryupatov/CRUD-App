@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { getProductsAction } from "./store/productsSlice";
 import { useAppDispatch } from "./store/hooks";
+import {LoadingScreen} from "./screens/loadingScreen/loadingScreen";
 
 export const DataLoader: React.FC<{ children: React.ReactNode }> = (props) => {
+
   const [isLoaded, setIsLoaded] = useState(false);
 
   const dispatch = useAppDispatch();
@@ -19,7 +21,7 @@ export const DataLoader: React.FC<{ children: React.ReactNode }> = (props) => {
   }, []);
 
   if (!isLoaded) {
-    return <div>Loading...</div>;
+    return <LoadingScreen />;
   }
 
   return <>{props.children}</>;

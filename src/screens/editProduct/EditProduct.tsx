@@ -1,9 +1,11 @@
 import React from "react";
 import { Input } from "../../kit/Input";
-import {Container} from "../../styles/Container.styled";
-import {ButtonStyled} from "../../styles/Button.styled";
-import {Wrapper} from "../../styles/Wrapper.styled";
-import {Form} from "../../styles/Form.styled";
+import { ButtonStyled } from "../../styles/Button.styled";
+import { Form } from "../../styles/Form.styled";
+import {
+  InnerContainerStyled,
+  WrapperStyled,
+} from "../homePage/HomePage.styled";
 
 interface EditProductProps {
   label: string;
@@ -19,31 +21,34 @@ interface EditProductProps {
 
 export const EditProduct: React.FC<EditProductProps> = (props) => {
   return (
-    <Container>
-      <Wrapper width={"30%"}>
-      <h1>You're editing the product - "{props.heading}"</h1>
-      <Form>
-        <Input
-          label={"Change the product name"}
-          value={props.productName}
-          onChange={props.onProductNameChange}
-        />
-        <Input
-          label={"Change the product price"}
-          value={props.productPrice}
-          onChange={props.onProductPriceChange}
-        />
-        <Input
-          label={"Change the number in stock"}
-          value={props.productStock}
-          onChange={props.onProductStockChange}
-        />
+    <WrapperStyled>
+      <InnerContainerStyled>
+        <Form>
+          <h1>You're editing the product - {props.heading}</h1>
+          <Input
+            label={"Change the product name"}
+            value={props.productName}
+            onChange={props.onProductNameChange}
+            placeholder={"Enter the new product name"}
+          />
+          <Input
+            label={"Change the product price"}
+            value={props.productPrice}
+            onChange={props.onProductPriceChange}
+            placeholder={"Enter the new price"}
+          />
+          <Input
+            label={"Change the number in stock"}
+            value={props.productStock}
+            onChange={props.onProductStockChange}
+            placeholder={"Enter the new number in stock"}
+          />
 
-        <ButtonStyled onClick={props.onSubmit}>
-          Submit your edits
-        </ButtonStyled>
-      </Form>
-      </Wrapper>
-    </Container>
+          <ButtonStyled onClick={props.onSubmit}>
+            Submit your edits
+          </ButtonStyled>
+        </Form>
+      </InnerContainerStyled>
+    </WrapperStyled>
   );
 };

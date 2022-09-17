@@ -1,9 +1,10 @@
 import React from "react";
 import { Input } from "../../kit/Input";
-import { Container } from "../../styles/Container.styled";
 import { ButtonStyled } from "../../styles/Button.styled";
 import { Form } from "../../styles/Form.styled";
-import { Wrapper } from "../../styles/Wrapper.styled";
+import {WrapperStyled} from "../homePage/HomePage.styled";
+import {InnerContainerStyled} from "../homePage/HomePage.styled";
+
 
 interface AddProductProps {
   label: string;
@@ -18,31 +19,33 @@ interface AddProductProps {
 
 export const AddProduct: React.FC<AddProductProps> = (props) => {
   return (
-    <Container>
+    <WrapperStyled>
+      <InnerContainerStyled>
 
-      <Wrapper width={"30%"}>
-        <h1>Want to add a new product?</h1>
         <Form>
+          <h1>Want to add a new product?</h1>
           <Input
             label={"Enter the product name"}
             value={props.productName}
             onChange={props.onProductNameChange}
+            placeholder={"Product name"}
           />
           <Input
             label={"Enter the product price"}
             value={props.productPrice}
             onChange={props.onProductPriceChange}
+            placeholder={"Product price"}
           />
           <Input
             label={"Enter the number in stock"}
             value={props.productStock}
             onChange={props.onProductStockChange}
+            placeholder={"Number in stock"}
           />
 
           <ButtonStyled onClick={props.onSubmit}>Add a product</ButtonStyled>
-
         </Form>
-      </Wrapper>
-    </Container>
+      </InnerContainerStyled>
+    </WrapperStyled>
   );
 };

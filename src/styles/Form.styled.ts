@@ -7,6 +7,6 @@ export const Form = styled.form`
   box-sizing: border-box;
   color:black;
   border-radius: 5px;
-  background-color: #f2f2f2;
-
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  background: #f9fbfc;
 `

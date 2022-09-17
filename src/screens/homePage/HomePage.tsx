@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {
   InnerContainerStyled,
   TableStyled,
-  TableWrapper,
+  WrapperStyled,
   TopPanel,
 } from "./HomePage.styled";
 import { InputStyled } from "../../kit/InputStyled";
@@ -24,7 +24,7 @@ export const HomePage: React.FC<HomePageProps> = (props) => {
 
     return (
 
-    <TableWrapper>
+    <WrapperStyled>
       <InnerContainerStyled>
         <TopPanel>
           <InputStyled
@@ -54,6 +54,6 @@ export const HomePage: React.FC<HomePageProps> = (props) => {
           )}
         </TableStyled>
       </InnerContainerStyled>
-    </TableWrapper>
+    </WrapperStyled>
   );
 };

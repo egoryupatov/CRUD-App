@@ -8,7 +8,7 @@ import { AddProductContainer } from "./screens/addProduct/AddProductContainer";
 import { EditProductContainer } from "./screens/editProduct/EditProductContainer";
 import { DataLoader } from "./DataLoader";
 import { GlobalStyles } from "./styles/Global.styled";
-import {Container2} from "./styles/Container.styled";
+import {Container} from "./styles/Container.styled";
 import {HomePageContainer} from "./screens/homePage/HomePageContainer";
 
 const container = document.getElementById("root")!;
@@ -20,7 +20,7 @@ root.render(
     <BrowserRouter>
       <Provider store={store}>
 
-        <Container2>
+        <Container>
             <Menu />
             <DataLoader>
               <Routes>
@@ -29,7 +29,7 @@ root.render(
                 <Route path="/edit/:id" element={<EditProductContainer />} />
               </Routes>
             </DataLoader>
-        </Container2>
+        </Container>
 
       </Provider>
     </BrowserRouter>

@@ -1,5 +1,6 @@
 import { Product } from "../store/productsSlice";
-import { PartialProduct } from "../screens/addProduct/AddProductContainer";
+import { PartialProductCreate } from "../screens/addProduct/AddProductContainer";
+import { PartialProductEdit } from "../screens/editProduct/EditProductContainer";
 
 export const BASE_API_URL = "http://localhost:3000";
 
@@ -12,11 +13,11 @@ interface GetProductsApiParams {
 }
 
 interface CreateProductApiParams {
-  newProduct: PartialProduct;
+  newProduct: PartialProductCreate;
 }
 
 interface EditProductApiParams {
-  editedProduct: PartialProduct;
+  editedProduct: PartialProductEdit;
 }
 
 interface DeleteProductApiParams {
@@ -35,12 +36,8 @@ export const getProductsApi = (params: GetProductsApiParams): Promise<Product> =
   });
 };
 
-
-
-
-
-
 export const createProductApi = (params: CreateProductApiParams): Promise<Product> => {
+
   const options = {
     method: "POST",
     headers,
@@ -52,8 +49,6 @@ export const createProductApi = (params: CreateProductApiParams): Promise<Produc
   });
 };
 
-
-
 export const editProductApi = (params: EditProductApiParams): Promise<Product> => {
   const options = {
     method: "PUT",
@@ -61,16 +56,10 @@ export const editProductApi = (params: EditProductApiParams): Promise<Product> =
     body: JSON.stringify(params.editedProduct),
   };
 
-  return fetch(`${BASE_API_URL}/products/`, options).then((response) => {
+  return fetch(`${BASE_API_URL}/products/${params.editedProduct.id}`, options).then((response) => {
     return response.json();
   });
 };
-
-
-
-
-
-
 
 export const deleteProductApi = (params: DeleteProductApiParams) => {
   const options = {

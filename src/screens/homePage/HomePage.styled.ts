@@ -9,25 +9,23 @@ export const TopPanel = styled.div`
   border-radius: 10px;
   border: 1px solid #f0f3f2;
   padding: 10px 15px 10px 15px;
-
   box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 `
 
-export const TableWrapper = styled.div`
+export const WrapperStyled = styled.div`
 
   display:flex;
   justify-content: center;
   height: 100%;
   align-items: center;
-
-
+  
 `
 
 export const InnerContainerStyled = styled.div`
 
   display:flex;
   flex-direction: column;
-  width:30%;
+  width:700px;
   gap:15px;
 
 `
@@ -116,4 +114,11 @@ export const TableCellStyled = styled.div`
     justify-content: left;
   }
 
+`
+
+export const LoaderStyled = styled.div`
+
+  display:flex;
+  justify-content: center;
+  
 `
