@@ -14,11 +14,12 @@ import {SelectStyled} from "./HomePage.styled";
 interface HomePageProps {
   products: Product[];
   sortedUpDescending: Product[];
-  sort: boolean;
+  sortedUpAscending: Product[];
+  sort: string;
   searchValue: string;
   onChangeSearchValue: (event:any) => void;
-  handleSort: () => void;
   chosenCategory: string;
+  setSort: React.Dispatch<React.SetStateAction<string>>
   setChosenCategory: React.Dispatch<React.SetStateAction<string>>
 }
 
@@ -35,9 +36,13 @@ export const HomePage: React.FC<HomePageProps> = (props) => {
             value={props.searchValue}
             onChange={props.onChangeSearchValue}
           ></InputStyled>
-          <ButtonStyled margin="8px 0px" onClick={props.handleSort}>
-            Sort by price
-          </ButtonStyled>
+
+          <SelectStyled>
+            <option value="" disabled selected>Sort by price</option>
+
+            <option onClick={() => props.setSort('Descending')} value="descending">Descending</option>
+            <option onClick={() => props.setSort('Ascending')} value="ascending">Ascending</option>
+          </SelectStyled>
 
 
           <SelectStyled>
@@ -54,7 +59,7 @@ export const HomePage: React.FC<HomePageProps> = (props) => {
 
         <TableStyled>
 
-          {!props.sort && (
+          {props.sort === 'Default' && (
             <SortedList
               products={props.products}
               searchValue={props.searchValue}
@@ -63,13 +68,22 @@ export const HomePage: React.FC<HomePageProps> = (props) => {
             />
           )}
 
-          {props.sort && (
+          {props.sort === 'Descending' && (
             <SortedList
               products={props.sortedUpDescending}
               searchValue={props.searchValue}
               onChangeSearchValue={props.onChangeSearchValue}
               chosenCategory={props.chosenCategory}
             />
+          )}
+
+          {props.sort === 'Ascending' && (
+              <SortedList
+                  products={props.sortedUpAscending}
+                  searchValue={props.searchValue}
+                  onChangeSearchValue={props.onChangeSearchValue}
+                  chosenCategory={props.chosenCategory}
+              />
           )}
 
 

@@ -14,7 +14,7 @@ export const HomePageContainer: React.FC = () => {
       (a, b) => Number(a.price) - Number(b.price)
   );
 
-  const [sort, setSort] = useState<boolean>(false);
+  const [sort, setSort] = useState<string>('Default');
   const [searchValue, setSearchValue] = useState<string>("");
   const [chosenCategory, setChosenCategory] = useState<string>('All')
 
@@ -22,18 +22,16 @@ export const HomePageContainer: React.FC = () => {
     setSearchValue(event.target.value);
   };
 
-  const handleSort = () => {
-    setSort((prevSort) => !prevSort);
-  };
 
   return (
     <HomePage
       products={products}
       sortedUpDescending={sortedUpDescending}
+      sortedUpAscending={sortedUpAscending}
       sort={sort}
       searchValue={searchValue}
       onChangeSearchValue={onChangeSearchValue}
-      handleSort={handleSort}
+      setSort={setSort}
       chosenCategory={chosenCategory}
       setChosenCategory={setChosenCategory}
     />
