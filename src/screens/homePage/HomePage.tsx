@@ -13,7 +13,7 @@ import {SelectStyled} from "./HomePage.styled";
 
 interface HomePageProps {
   products: Product[];
-  sortedUp: Product[];
+  sortedUpDescending: Product[];
   sort: boolean;
   searchValue: string;
   onChangeSearchValue: (event:any) => void;
@@ -53,6 +53,7 @@ export const HomePage: React.FC<HomePageProps> = (props) => {
         </TopPanel>
 
         <TableStyled>
+
           {!props.sort && (
             <SortedList
               products={props.products}
@@ -61,14 +62,17 @@ export const HomePage: React.FC<HomePageProps> = (props) => {
               chosenCategory={props.chosenCategory}
             />
           )}
+
           {props.sort && (
             <SortedList
-              products={props.sortedUp}
+              products={props.sortedUpDescending}
               searchValue={props.searchValue}
               onChangeSearchValue={props.onChangeSearchValue}
               chosenCategory={props.chosenCategory}
             />
           )}
+
+
         </TableStyled>
       </InnerContainerStyled>
     </WrapperStyled>

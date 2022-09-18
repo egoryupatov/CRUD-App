@@ -1,7 +1,7 @@
 import { DeleteProduct } from "../deleteProduct/DeleteProduct";
 import { EditProductButton } from "./EditProductButton";
 import { Product } from "../../store/productsSlice";
-import React, {ChangeEventHandler, Dispatch} from "react";
+import React, {ChangeEventHandler} from "react";
 import {
   TableBodyStyled,
   TableCellStyled,
@@ -32,7 +32,7 @@ export const SortedList: React.FC<SortedListProps> = (props) => {
 
         {props.products
         .filter((product) => {
-          return product.name.includes(props.searchValue);
+          return product.name.toLowerCase().includes(props.searchValue);
         })
         .filter((product) => {
           return props.chosenCategory === 'All' ? product.category[1] : product.category[0] === props.chosenCategory;
