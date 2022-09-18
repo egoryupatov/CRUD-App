@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {Dispatch, SetStateAction} from "react";
 import {
   InnerContainerStyled,
   TableStyled,
@@ -7,9 +7,9 @@ import {
 } from "./HomePage.styled";
 import { InputStyled } from "../../kit/InputStyled";
 import { ButtonStyled } from "../../styles/Button.styled";
-import { useAppSelector } from "../../store/hooks";
 import { SortedList } from "./SortedList";
 import { Product } from "../../store/productsSlice";
+import {SelectStyled} from "./HomePage.styled";
 
 interface HomePageProps {
   products: Product[];
@@ -18,9 +18,12 @@ interface HomePageProps {
   searchValue: string;
   onChangeSearchValue: (event:any) => void;
   handleSort: () => void;
+  chosenCategory: string;
+  setChosenCategory: React.Dispatch<React.SetStateAction<string>>
 }
 
 export const HomePage: React.FC<HomePageProps> = (props) => {
+
 
     return (
 
@@ -35,6 +38,18 @@ export const HomePage: React.FC<HomePageProps> = (props) => {
           <ButtonStyled margin="8px 0px" onClick={props.handleSort}>
             Sort by price
           </ButtonStyled>
+
+
+          <SelectStyled>
+            <option value="" disabled selected>Choose a category</option>
+
+            <option onClick={() => props.setChosenCategory('All')} value="all">All</option>
+            <option onClick={() => props.setChosenCategory('Laptops')} value="laptops">Laptops</option>
+            <option onClick={() => props.setChosenCategory('Smartphones')} value="smartphones">Smartphones</option>
+            <option onClick={() => props.setChosenCategory('Smartwatches')} value="smartwatches">Smartwatches</option>
+            <option onClick={() => props.setChosenCategory('Tablets')} value="tablets">Tablets</option>
+          </SelectStyled>
+
         </TopPanel>
 
         <TableStyled>
@@ -43,6 +58,7 @@ export const HomePage: React.FC<HomePageProps> = (props) => {
               products={props.products}
               searchValue={props.searchValue}
               onChangeSearchValue={props.onChangeSearchValue}
+              chosenCategory={props.chosenCategory}
             />
           )}
           {props.sort && (
@@ -50,6 +66,7 @@ export const HomePage: React.FC<HomePageProps> = (props) => {
               products={props.sortedUp}
               searchValue={props.searchValue}
               onChangeSearchValue={props.onChangeSearchValue}
+              chosenCategory={props.chosenCategory}
             />
           )}
         </TableStyled>

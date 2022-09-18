@@ -4,31 +4,43 @@
       "name": "MacBook Air",
       "price": "1300",
       "stock": "567",
+      "category": ["Laptops", "All"],
       "id": 7
     },
     {
       "name": "MacBook Pro 14”",
       "price": "2100",
       "stock": "432",
+      "category": ["Laptops", "All"],
       "id": 8
     },
     {
       "name": "MacBook Pro 16”",
       "price": "2799",
       "stock": "267",
+      "category": ["Laptops", "All"],
       "id": 10
     },
     {
       "name": "iPhone 12 Pro 64Gb",
       "price": "899",
       "stock": "45",
+      "category": ["Smartphones", "All"],
       "id": 12
     },
     {
       "name": "Apple Watch Series 7",
       "price": "399",
       "stock": "433",
+      "category": ["Smartwatches", "All"],
       "id": 13
+    },
+    {
+      "name": "iPad Mini",
+      "price": "588",
+      "stock": "34",
+      "category": ["Tablets", "All"],
+      "id": 14
     }
   ]
 }

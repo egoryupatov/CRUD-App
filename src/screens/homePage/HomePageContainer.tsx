@@ -9,8 +9,11 @@ export const HomePageContainer: React.FC = () => {
     (a, b) => Number(b.price) - Number(a.price)
   );
 
-  const [sort, setSort] = useState(false);
+  const [sort, setSort] = useState<boolean>(false);
   const [searchValue, setSearchValue] = useState<string>("");
+  const [chosenCategory, setChosenCategory] = useState<string>('All')
+
+
 
   const onChangeSearchValue = (event: any) => {
     setSearchValue(event.target.value);
@@ -20,6 +23,8 @@ export const HomePageContainer: React.FC = () => {
     setSort((prevSort) => !prevSort);
   };
 
+  console.log(chosenCategory)
+
   return (
     <HomePage
       products={products}
@@ -28,6 +33,8 @@ export const HomePageContainer: React.FC = () => {
       searchValue={searchValue}
       onChangeSearchValue={onChangeSearchValue}
       handleSort={handleSort}
+      chosenCategory={chosenCategory}
+      setChosenCategory={setChosenCategory}
     />
   );
 };
