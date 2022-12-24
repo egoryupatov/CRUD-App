@@ -25,7 +25,7 @@ export const InnerContainerStyled = styled.div`
 
   display:flex;
   flex-direction: column;
-  width:700px;
+  width:900px;
   gap:15px;
 
 `
@@ -105,7 +105,7 @@ export const TableCellStyled = styled.div`
   }
 
   &:nth-of-type(5) {
-    flex:1;
+    flex:2;
     justify-content: left;
   }
 
@@ -114,7 +114,34 @@ export const TableCellStyled = styled.div`
     justify-content: left;
   }
 
+  &:nth-of-type(7) {
+    flex:1;
+    justify-content: left;
+  }
+
 `
+
+export const SelectStyled = styled.select`
+
+  background-color: #FAFBFC;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  appearance: none;
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  color: #24292E;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  padding: 6px 16px;
+  position: relative;
+  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  white-space: nowrap;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  margin: 8px;
+  text-align: center;
+`
+
 
 export const LoaderStyled = styled.div`
 
